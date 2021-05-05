@@ -34,8 +34,6 @@ import java.util.Queue;
 public class WebRTCConnection implements NetworkCallback {
     private static final String TAG = "Connect_webRTC";
 
-    private Context context;
-
     private DataChannel dataChannel;
     private MediaConstraints constraints;
     private PeerConnection peerConnection;
@@ -54,7 +52,6 @@ public class WebRTCConnection implements NetworkCallback {
     private String callingToCandidates = "";
 
     public WebRTCConnection(Context context, String meetingId, String username, String callingTo, boolean createdOffer) {
-        this.context = context;
         this.meetingId = meetingId;
         this.username = username;
         this.usernameRoot = username+"Root";
