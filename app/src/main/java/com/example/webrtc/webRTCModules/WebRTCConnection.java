@@ -40,7 +40,7 @@ public class WebRTCConnection implements NetworkCallback {
     private PeerConnectionFactory peerConnectionFactory;
     private DatabaseReference databaseReference;
 
-    private Boolean createdOffer = false;
+    private final boolean createdOffer;
     private Audio audio;
     private Queue<byte[]> byteQueue;
     private String meetingId;
