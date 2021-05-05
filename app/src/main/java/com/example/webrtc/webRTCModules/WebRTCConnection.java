@@ -59,18 +59,13 @@ public class WebRTCConnection implements NetworkCallback {
         this.username = username;
         this.usernameRoot = username+"Root";
         this.usernameCandidate = username + "Candidates";
-
         this.callingTo = callingTo;
         this.callingToRoot = callingTo+"Root";
         this.callingToCandidates = callingTo + "Candidates";
-
         this.createdOffer = createdOffer;
 
-
-        byteQueue = new LinkedList<>();
-
         PeerConnectionFactory.initializeAndroidGlobals(context, true, true, true);
-
+        byteQueue = new LinkedList<>();
         constraints = new MediaConstraints();
         peerConnectionFactory = new PeerConnectionFactory();
         databaseReference = FirebaseDatabase.getInstance().getReference().child(meetingId);
@@ -79,18 +74,13 @@ public class WebRTCConnection implements NetworkCallback {
         ntsToken.execute();
 
         audio = new Audio();
-        audio.inititalize();
-
+        audio.initialize();
         audio.startRecording();
         audio.startPlaying();
-
-
-
     }
 
     //todo: to Play Audio Bytes
     public void playAudio() {
-
         new Thread(new Runnable() {
             @Override
             public void run() {
@@ -115,19 +105,15 @@ public class WebRTCConnection implements NetworkCallback {
     //todo: to setup firebase database signaling listener
     // to actively fetching IceCandidates from either Parties {Steve, Bill}
     public void setupListeners() {
-
         /*todo: Make a signaling Call back channel to send CandidateDataListener
         todo: You can use Firebase Database model to save the information of Steve
         todo: So that Bill Can this information
          */
-
         databaseReference.child(callingToRoot).addValueEventListener(candidateDataListener);
-
     }
 
     //todo: Start Sending Data using DataChannel to either Parties {Steve, Bill}
     public boolean startSend() {
-
         try {
             new Thread(new Runnable() {
                 @Override
@@ -139,8 +125,7 @@ public class WebRTCConnection implements NetworkCallback {
                 }
             }).start();
             return true;
-        }catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
@@ -295,7 +280,6 @@ public class WebRTCConnection implements NetworkCallback {
     //todo: Initial PeerConnection and DataChannel
     @Override
     public void InitializePeerConnection(Example example) {
-
         /*
                 url: 'turn:192.158.29.39:3478?transport=udp',
                 credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
@@ -319,11 +303,9 @@ public class WebRTCConnection implements NetworkCallback {
 
         setupListeners();
 
-        if(createdOffer)
+        if (createdOffer)
         {
             createOffer();
         }
     }
-
-
 }

@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity{
         meetingId_et = findViewById(R.id.meetingId);
         username_et = findViewById(R.id.username);
         callTo_et = findViewById(R.id.callingTo);
-
     }
 
     @Override
@@ -60,13 +59,8 @@ public class MainActivity extends AppCompatActivity{
         btnSendMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
               connect.startSend();
             }
         });
-
-
     }
-
-
 }

@@ -10,9 +10,7 @@ import android.os.Build;
 import android.util.Log;
 
 public class Audio {
-
     private static final String TAG = "Audio";
-
     public static final int SAMPLE_RATE = 16000;
 
     private AudioRecord audioRecord;
@@ -21,14 +19,11 @@ public class Audio {
     private byte[] byteData;
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public void inititalize(){
-
+    public void initialize() {
         minBufferSizeInBytes = AudioRecord.getMinBufferSize(SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT);
         Log.e(TAG, "MIN BUFFER SIZE: " + minBufferSizeInBytes);
-//        minBufferSizeInShort = minBufferSizeInBytes / 2;
 
         audioRecord = new AudioRecord(MediaRecorder.AudioSource.VOICE_COMMUNICATION, SAMPLE_RATE, AudioFormat.CHANNEL_IN_MONO, AudioFormat.ENCODING_PCM_16BIT, minBufferSizeInBytes);
-
         audioTrack = new AudioTrack(new AudioAttributes.Builder()
                 .setFlags(AudioAttributes.FLAG_AUDIBILITY_ENFORCED)
                 .setUsage(AudioAttributes.USAGE_VOICE_COMMUNICATION)
@@ -48,7 +43,7 @@ public class Audio {
         audioRecord.startRecording();
     }
 
-    public byte[] getRecordedData(){
+    public byte[] getRecordedData() {
         audioRecord.read(byteData,0, minBufferSizeInBytes);
         return byteData;
     }
