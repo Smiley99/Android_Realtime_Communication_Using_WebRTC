@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "414131907630",
+    "project_id": "memes-a8606",
+    "storage_bucket": "memes-a8606.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:414131907630:android:c358b19ae54f5b89bdc3bf",
+        "android_client_info": {
+          "package_name": "aids.ebola"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "414131907630-p7nm03tdb5d519koi8042702kfq4iu7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRGmP8b1UbDHhsEGmK6dLzfEIG9bwwjKA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "414131907630-p7nm03tdb5d519koi8042702kfq4iu7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
